@@ -14,7 +14,12 @@ export const PROJECTS: Project[] = [
     status: 'In progress',
     summary:
       'Per-task cost, latency and quality telemetry for LLM agents built on Google ADK, with model routing learned from evals and a semantic cache that measures its own false hits. Benchmarked on public agent benchmarks.',
-    topics: ['LLM evaluation', 'model routing', 'inference caching', 'OpenTelemetry'],
+    topics: [
+      'LLM evaluation',
+      'model routing',
+      'inference caching',
+      'OpenTelemetry',
+    ],
   },
   {
     name: 'Durable Executor',

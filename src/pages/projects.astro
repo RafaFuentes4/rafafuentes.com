@@ -4,18 +4,23 @@ import ProjectCard from '../components/ProjectCard.astro';
 import { PROJECTS } from '../projects';
 ---
 
-<Base title="Projects" description="Open-source projects on agent efficiency, durable execution and storage engines.">
+<Base
+  title="Projects"
+  description="Open-source projects on agent efficiency, durable execution and storage engines."
+>
   <section class="container page-head">
     <p class="eyebrow">Open source</p>
     <h1>Projects</h1>
     <p class="hero-lede">
-      Three deep projects, one per language. Each ships with a design doc, reproducible benchmarks and a
-      series of write-ups.
+      Three deep projects, one per language. Each ships with a design doc,
+      reproducible benchmarks and a series of write-ups.
     </p>
   </section>
   <section class="container">
     <div class="project-grid">
-      {PROJECTS.map((project) => <ProjectCard project={project} />)}
+      {PROJECTS.map((project) => (
+        <ProjectCard project={project} />
+      ))}
     </div>
   </section>
 </Base>

@@ -1,0 +1,9 @@
+# Generated
+dist/
+.astro/
+package-lock.json
+skills-lock.json
+
+# Vendored super-board pack and its run evidence
+.claude/
+docs/super-board/
