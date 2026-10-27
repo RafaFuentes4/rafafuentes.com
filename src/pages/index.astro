@@ -15,32 +15,37 @@ const posts = (await getPublishedPosts()).slice(0, 4);
     <div class="container">
       <p class="eyebrow reveal">Tech Lead at Bettergy · Málaga, Spain</p>
       <h1 class="hero-title reveal">
-        I build production systems for <span class="accent">AI</span>, <span class="accent">data</span> and
-        the <span class="accent">infrastructure</span> underneath them.
+        I build production systems for <span class="accent">AI</span>,{' '}
+        <span class="accent">data</span> and the{' '}
+        <span class="accent">infrastructure</span> underneath them.
       </h1>
       <p class="hero-lede reveal">
-        Backend and platform engineer working across retrieval and agent systems, multi-tenant
-        platforms, time-series pipelines and Kubernetes. I own systems end to end, from design doc to
-        on-call.
+        Backend and platform engineer working across retrieval and agent
+        systems, multi-tenant platforms, time-series pipelines and Kubernetes. I
+        own systems end to end, from design doc to on-call.
       </p>
       <div class="hero-actions reveal">
-        <a class="button button-primary" href={`mailto:${SITE.email}`}>Get in touch</a>
-        <a class="button" href={SITE.linkedin}>LinkedIn</a>
-        <a class="button" href={SITE.github}>GitHub</a>
+        <a class="button button-primary" href={`mailto:${SITE.email}`}>
+          Get in touch
+        </a>
+        <a class="button" href={SITE.linkedin}>
+          LinkedIn
+        </a>
+        <a class="button" href={SITE.github}>
+          GitHub
+        </a>
       </div>
     </div>
   </section>
 
   <section class="container">
     <dl class="metrics">
-      {
-        METRICS.map((metric) => (
-          <div class="metric reveal">
-            <dt>{metric.value}</dt>
-            <dd>{metric.label}</dd>
-          </div>
-        ))
-      }
+      {METRICS.map((metric) => (
+        <div class="metric reveal">
+          <dt>{metric.value}</dt>
+          <dd>{metric.label}</dd>
+        </div>
+      ))}
     </dl>
   </section>
 
@@ -50,25 +55,23 @@ const posts = (await getPublishedPosts()).slice(0, 4);
       <h2>Systems in production</h2>
     </header>
     <div class="case-grid">
-      {
-        CASE_STUDIES.map((study) => (
-          <article class="case card">
-            <p class="case-context">{study.context}</p>
-            <h3>{study.title}</h3>
-            <p class="case-summary">{study.summary}</p>
-            <ul class="case-points">
-              {study.points.map((point) => (
-                <li>{point}</li>
-              ))}
-            </ul>
-            <p class="chips">
-              {study.stack.map((item) => (
-                <span class="chip">{item}</span>
-              ))}
-            </p>
-          </article>
-        ))
-      }
+      {CASE_STUDIES.map((study) => (
+        <article class="case card">
+          <p class="case-context">{study.context}</p>
+          <h3>{study.title}</h3>
+          <p class="case-summary">{study.summary}</p>
+          <ul class="case-points">
+            {study.points.map((point) => (
+              <li>{point}</li>
+            ))}
+          </ul>
+          <p class="chips">
+            {study.stack.map((item) => (
+              <span class="chip">{item}</span>
+            ))}
+          </p>
+        </article>
+      ))}
     </div>
   </section>
 
@@ -78,10 +81,14 @@ const posts = (await getPublishedPosts()).slice(0, 4);
         <p class="eyebrow">Open source</p>
         <h2>Building in public</h2>
       </div>
-      <a class="link-arrow" href="/projects">All projects</a>
+      <a class="link-arrow" href="/projects">
+        All projects
+      </a>
     </header>
     <div class="project-grid">
-      {PROJECTS.map((project) => <ProjectCard project={project} />)}
+      {PROJECTS.map((project) => (
+        <ProjectCard project={project} />
+      ))}
     </div>
   </section>
 
@@ -92,7 +99,9 @@ const posts = (await getPublishedPosts()).slice(0, 4);
           <p class="eyebrow">Writing</p>
           <h2>Latest notes</h2>
         </div>
-        <a class="link-arrow" href="/writing">All writing</a>
+        <a class="link-arrow" href="/writing">
+          All writing
+        </a>
       </header>
       <PostList posts={posts} />
     </div>
@@ -102,17 +111,17 @@ const posts = (await getPublishedPosts()).slice(0, 4);
         <h2>Where I've worked</h2>
       </header>
       <ol class="timeline">
-        {
-          EXPERIENCE.map((item) => (
-            <li>
-              <span class="timeline-role">{item.role}</span>
-              <span class="timeline-org">{item.org}</span>
-              <span class="timeline-period">{item.period}</span>
-            </li>
-          ))
-        }
+        {EXPERIENCE.map((item) => (
+          <li>
+            <span class="timeline-role">{item.role}</span>
+            <span class="timeline-org">{item.org}</span>
+            <span class="timeline-period">{item.period}</span>
+          </li>
+        ))}
       </ol>
-      <p class="muted small">B.Sc. Telecommunications Engineering, Universidad de Málaga.</p>
+      <p class="muted small">
+        B.Sc. Telecommunications Engineering, Universidad de Málaga.
+      </p>
     </div>
   </section>
 
@@ -120,9 +129,14 @@ const posts = (await getPublishedPosts()).slice(0, 4);
     <div class="cta card">
       <div>
         <h2>Let's talk</h2>
-        <p class="muted">Happy to chat about agents, distributed systems or data infrastructure.</p>
+        <p class="muted">
+          Happy to chat about agents, distributed systems or data
+          infrastructure.
+        </p>
       </div>
-      <a class="button button-primary" href={`mailto:${SITE.email}`}>{SITE.email}</a>
+      <a class="button button-primary" href={`mailto:${SITE.email}`}>
+        {SITE.email}
+      </a>
     </div>
   </section>
 </Base>

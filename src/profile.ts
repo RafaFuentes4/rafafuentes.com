@@ -1,8 +1,21 @@
 export const METRICS = [
-  { value: '18,000+', label: 'conversations served by a retrieval platform I designed' },
-  { value: '52→89%', label: 'answer accuracy after building an LLM evaluation harness' },
-  { value: '−43%', label: 'infrastructure and model spend through rightsizing and model tiering' },
-  { value: '4 months', label: 'from blank repo to production for a multi-tenant IoT platform' },
+  {
+    value: '18,000+',
+    label: 'conversations served by a retrieval platform I designed',
+  },
+  {
+    value: '52→89%',
+    label: 'answer accuracy after building an LLM evaluation harness',
+  },
+  {
+    value: '−43%',
+    label:
+      'infrastructure and model spend through rightsizing and model tiering',
+  },
+  {
+    value: '4 months',
+    label: 'from blank repo to production for a multi-tenant IoT platform',
+  },
 ];
 
 export interface CaseStudy {
@@ -66,7 +79,15 @@ export const CASE_STUDIES: CaseStudy[] = [
 
 export const EXPERIENCE = [
   { role: 'Tech Lead', org: 'Bettergy', period: '2025 — now' },
-  { role: 'Senior Software Engineer', org: 'Startup Wise Guys', period: '2024 — 2025' },
+  {
+    role: 'Senior Software Engineer',
+    org: 'Startup Wise Guys',
+    period: '2024 — 2025',
+  },
   { role: 'Founding Engineer', org: 'Blueberry Málaga', period: '2023 — 2024' },
-  { role: 'Software Engineer, R&D', org: 'Universidad de Málaga', period: '2022 — 2023' },
+  {
+    role: 'Software Engineer, R&D',
+    org: 'Universidad de Málaga',
+    period: '2022 — 2023',
+  },
 ];

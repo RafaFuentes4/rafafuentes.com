@@ -12,9 +12,11 @@
   --accent-soft: rgb(36 83 230 / 0.08);
   --code-bg: #f4f4f2;
   --grid: rgb(17 17 19 / 0.045);
-  --shadow: 0 1px 2px rgb(17 17 19 / 0.04), 0 8px 24px -12px rgb(17 17 19 / 0.12);
+  --shadow:
+    0 1px 2px rgb(17 17 19 / 0.04), 0 8px 24px -12px rgb(17 17 19 / 0.12);
 
-  --sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --sans:
+    'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --radius: 14px;
@@ -191,7 +193,9 @@ p {
   border-radius: 8px;
   color: var(--muted);
   font-size: 0.9rem;
-  transition: color 150ms ease, background-color 150ms ease;
+  transition:
+    color 150ms ease,
+    background-color 150ms ease;
 }
 
 .site-header nav a[aria-current='page'] {
@@ -209,7 +213,10 @@ p {
   background: transparent;
   color: var(--muted);
   cursor: pointer;
-  transition: color 150ms ease, border-color 150ms ease, transform 160ms var(--ease-out);
+  transition:
+    color 150ms ease,
+    border-color 150ms ease,
+    transform 160ms var(--ease-out);
 }
 
 .theme-toggle:active {
@@ -284,7 +291,10 @@ p {
   font-size: 0.925rem;
   font-weight: 500;
   white-space: nowrap;
-  transition: border-color 150ms ease, background-color 150ms ease, transform 160ms var(--ease-out);
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease,
+    transform 160ms var(--ease-out);
 }
 
 .button:active {
@@ -362,8 +372,16 @@ p {
     linear-gradient(var(--grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid) 1px, transparent 1px);
   background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 70% 80% at 30% 0%, #000 30%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 30% 0%, #000 30%, transparent 75%);
+  mask-image: radial-gradient(
+    ellipse 70% 80% at 30% 0%,
+    #000 30%,
+    transparent 75%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 70% 80% at 30% 0%,
+    #000 30%,
+    transparent 75%
+  );
 }
 
 .hero-title {
@@ -461,7 +479,10 @@ p {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--bg-elev);
-  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms var(--ease-out);
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    transform 200ms var(--ease-out);
 }
 
 @media (hover: hover) and (pointer: fine) {

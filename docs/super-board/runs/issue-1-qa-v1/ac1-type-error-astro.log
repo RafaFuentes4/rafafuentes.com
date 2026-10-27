@@ -1,0 +1,56 @@
+
+> rafafuentes.com@0.0.1 verify
+> npm run check && npm run format:check && npm run build
+
+
+> rafafuentes.com@0.0.1 check
+> astro check
+
+15:42:48 [content] Syncing content
+15:42:48 [content] Synced content
+15:42:48 [types] Generated 325ms
+15:42:48 [check] Getting diagnostics for Astro files in /Users/rafa/Developer/personal/rafafuentes.com/.claude/worktrees/issue-1-qa...
+src/content.config.ts:11:12 - warning ts(6385): 'z' is deprecated.
+
+11     draft: z.boolean().default(false),
+              ~
+src/content.config.ts:10:19 - warning ts(6385): 'z' is deprecated.
+
+10     tags: z.array(z.string()).default([]),
+                     ~
+src/content.config.ts:10:11 - warning ts(6385): 'z' is deprecated.
+
+10     tags: z.array(z.string()).default([]),
+             ~
+src/content.config.ts:9:11 - warning ts(6385): 'z' is deprecated.
+
+9     date: z.coerce.date(),
+            ~
+src/content.config.ts:8:18 - warning ts(6385): 'z' is deprecated.
+
+8     description: z.string(),
+                   ~
+src/content.config.ts:7:12 - warning ts(6385): 'z' is deprecated.
+
+7     title: z.string(),
+             ~
+src/content.config.ts:6:11 - warning ts(6385): 'z' is deprecated.
+
+6   schema: z.object({
+            ~
+src/content.config.ts:1:28 - warning ts(6385): 'z' is deprecated.
+
+1 import { defineCollection, z } from 'astro:content';
+                             ~
+
+src/pages/404.astro:3:7 - error ts(2322): Type 'string' is not assignable to type 'number'.
+
+3 const qaPlanted: number = "x";
+        ~~~~~~~~~
+
+Result (16 files): 
+- 1 error
+- 0 warnings
+- 8 hints
+
+exit=1

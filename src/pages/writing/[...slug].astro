@@ -10,21 +10,34 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const fmt = new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
-const minutes = Math.max(1, Math.round((post.body ?? '').split(/\s+/).length / 220));
+const fmt = new Intl.DateTimeFormat('en-GB', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+const minutes = Math.max(
+  1,
+  Math.round((post.body ?? '').split(/\s+/).length / 220),
+);
 ---
 
 <Base title={post.data.title} description={post.data.description}>
   <article class="container narrow post">
-    <a class="link-back" href="/writing">All writing</a>
+    <a class="link-back" href="/writing">
+      All writing
+    </a>
     <header class="post-head">
       <h1>{post.data.title}</h1>
       <p class="post-lede">{post.data.description}</p>
       <p class="post-meta">
-        <time datetime={post.data.date.toISOString()}>{fmt.format(post.data.date)}</time>
+        <time datetime={post.data.date.toISOString()}>
+          {fmt.format(post.data.date)}
+        </time>
         <span>·</span>
         <span>{minutes} min read</span>
-        {post.data.tags.map((tag) => <span class="chip">{tag}</span>)}
+        {post.data.tags.map((tag) => (
+          <span class="chip">{tag}</span>
+        ))}
       </p>
     </header>
     <div class="prose">
