@@ -12,3 +12,6 @@ docs/super-board/
 test-results/
 playwright-report/
 e2e-screenshots/
+
+# Lighthouse CI output
+.lighthouseci/
