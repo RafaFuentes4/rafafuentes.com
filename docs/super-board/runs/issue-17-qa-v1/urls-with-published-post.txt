@@ -1,0 +1,4 @@
+http://127.0.0.1:4398/
+http://127.0.0.1:4398/writing/
+http://127.0.0.1:4398/projects/
+http://127.0.0.1:4398/writing/why-this-site/
