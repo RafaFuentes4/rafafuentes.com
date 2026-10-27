@@ -24,6 +24,8 @@ export interface CaseStudy {
   summary: string;
   points: string[];
   stack: string[];
+  /** Optional ISO date; when set, the home page Article JSON-LD includes datePublished. */
+  datePublished?: string;
 }
 
 export const CASE_STUDIES: CaseStudy[] = [
