@@ -1,0 +1,37 @@
+
+> rafafuentes.com@0.0.1 test:lighthouse
+> lhci autorun
+
+✅  .lighthouseci/ directory writable
+✅  Configuration file found
+✅  Chrome installation found
+⚠️   GitHub token not set
+Healthcheck passed!
+
+Started a web server with "npm run preview -- --ignore-lock --host 127.0.0.1 --port 4398"...
+Running Lighthouse 3 time(s) on http://127.0.0.1:4398/
+Run #1...done.
+Run #2...done.
+Run #3...done.
+Running Lighthouse 3 time(s) on http://127.0.0.1:4398/writing/
+Run #1...done.
+Run #2...done.
+Run #3...done.
+Running Lighthouse 3 time(s) on http://127.0.0.1:4398/projects/
+Run #1...done.
+Run #2...done.
+Run #3...done.
+Running Lighthouse 3 time(s) on http://127.0.0.1:4398/writing/why-this-site/
+Run #1...done.
+Run #2...done.
+Run #3...done.
+Done running Lighthouse!
+
+Checking assertions against 4 URL(s), 12 total run(s)
+
+All results processed!
+
+Dumping 12 reports to disk at <repo>/.lighthouseci/reports...
+Done writing reports to disk.
+
+Done running autorun.

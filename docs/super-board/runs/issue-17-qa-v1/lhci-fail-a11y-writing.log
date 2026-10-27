@@ -1,0 +1,46 @@
+
+> rafafuentes.com@0.0.1 test:lighthouse
+> lhci autorun
+
+✅  .lighthouseci/ directory writable
+✅  Configuration file found
+✅  Chrome installation found
+⚠️   GitHub token not set
+Healthcheck passed!
+
+Started a web server with "npm run preview -- --ignore-lock --host 127.0.0.1 --port 4398"...
+Running Lighthouse 3 time(s) on http://127.0.0.1:4398/
+Run #1...done.
+Run #2...done.
+Run #3...done.
+Running Lighthouse 3 time(s) on http://127.0.0.1:4398/writing/
+Run #1...done.
+Run #2...done.
+Run #3...done.
+Running Lighthouse 3 time(s) on http://127.0.0.1:4398/projects/
+Run #1...done.
+Run #2...done.
+Run #3...done.
+Done running Lighthouse!
+
+Checking assertions against 3 URL(s), 9 total run(s)
+
+2 result(s) for http://127.0.0.1:4398/writing/ :
+
+  ✘  categories.accessibility failure for minScore assertion
+        expected: >=0.95
+           found: 0.79
+      all values: 0.79, 0.79, 0.79
+
+
+  ✘  categories.seo failure for minScore assertion
+        expected: >=0.95
+           found: 0.92
+      all values: 0.92, 0.92, 0.92
+
+Assertion failed. Exiting with status code 1.
+
+Dumping 9 reports to disk at <repo>/.lighthouseci/reports...
+Done writing reports to disk.
+
+assert command failed. Exiting with status code 1.
