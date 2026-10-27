@@ -2,6 +2,7 @@
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { getPublishedPosts } from '../../posts';
+import { SITE } from '../../site';
 
 export async function getStaticPaths() {
   const posts = await getPublishedPosts();
@@ -19,9 +20,45 @@ const minutes = Math.max(
   1,
   Math.round((post.body ?? '').split(/\s+/).length / 220),
 );
+
+const articleUrl = new URL(`/writing/${post.id}/`, Astro.site).href;
+const articleImage = new URL(`/og/posts/${post.id}.png`, Astro.site).href;
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: post.data.title,
+  description: post.data.description,
+  image: articleImage,
+  datePublished: post.data.date.toISOString(),
+  author: {
+    '@type': 'Person',
+    name: 'Rafael Fuentes',
+    url: new URL('/', Astro.site).href,
+    sameAs: [SITE.github, SITE.linkedin],
+  },
+  mainEntityOfPage: articleUrl,
+};
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${new URL('/', Astro.site)}#person`,
+  name: SITE.title,
+  url: new URL('/', Astro.site).href,
+  jobTitle: 'Tech Lead at Bettergy',
+  sameAs: [SITE.github, SITE.linkedin],
+};
 ---
 
-<Base title={post.data.title} description={post.data.description}>
+<Base
+  title={post.data.title}
+  description={post.data.description}
+  ogType="article"
+>
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify([personJsonLd, articleJsonLd])}
+  />
   <article class="container narrow post">
     <a class="link-back" href="/writing">
       All writing

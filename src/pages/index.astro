@@ -8,9 +8,40 @@ import { CASE_STUDIES, EXPERIENCE, METRICS } from '../profile';
 import { SITE } from '../site';
 
 const posts = (await getPublishedPosts()).slice(0, 4);
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${new URL('/', Astro.site)}#person`,
+  name: SITE.title,
+  url: new URL('/', Astro.site).href,
+  jobTitle: 'Tech Lead at Bettergy',
+  sameAs: [SITE.github, SITE.linkedin],
+};
+
+const caseStudyJsonLd = CASE_STUDIES.map((study) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: study.title,
+  description: study.summary,
+  author: { '@id': `${new URL('/', Astro.site)}#person` },
+  ...(study.datePublished ? { datePublished: study.datePublished } : {}),
+}));
 ---
 
 <Base>
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(personJsonLd)}
+  />
+  {caseStudyJsonLd.map((article) => (
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(article)}
+    />
+  ))}
   <section class="hero">
     <div class="container">
       <p class="eyebrow reveal">Tech Lead at Bettergy · Málaga, Spain</p>

@@ -5,9 +5,14 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  ogType?: 'website' | 'article';
 }
 
-const { title, description = SITE.description } = Astro.props;
+const {
+  title,
+  description = SITE.description,
+  ogType = 'website',
+} = Astro.props;
 const pageTitle = title
   ? `${title} · ${SITE.title}`
   : `${SITE.title} — Software Engineer`;
@@ -18,6 +23,20 @@ const nav = [
   { href: '/projects', label: 'Projects' },
   { href: '/writing', label: 'Writing' },
 ];
+
+// Map the current route to its build-time OG card (scripts/generate-og.mjs).
+function ogImageFor(pathname: string): string {
+  if (pathname === '/' || pathname === '') return '/og/home.png';
+  const writingMatch = pathname.match(/^\/writing\/([^/]+)\/?$/);
+  if (writingMatch) return `/og/posts/${writingMatch[1]}.png`;
+  if (pathname.startsWith('/writing')) return '/og/writing.png';
+  if (pathname.startsWith('/projects')) return '/og/projects.png';
+  return '/og/404.png';
+}
+
+const ogImagePath = ogImageFor(path);
+const ogImage = new URL(ogImagePath, Astro.site);
+const ogAlt = `${pageTitle} — social preview`;
 ---
 
 <!doctype html>
@@ -44,8 +63,14 @@ const nav = [
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={ogAlt} />
     <script is:inline>
       try {
         const saved = localStorage.getItem('theme');
