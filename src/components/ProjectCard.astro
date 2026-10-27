@@ -12,11 +12,17 @@ const lang = project.language.toLowerCase().replace('+', 'p');
 <article class="project card">
   <div class="project-top">
     <span class={`lang lang-${lang}`}>{project.language}</span>
-    <span class="status" data-status={project.status}>{project.status}</span>
+    <span class="status" data-status={project.status}>
+      {project.status}
+    </span>
   </div>
   <h3>
     {project.repo ? <a href={project.repo}>{project.name}</a> : project.name}
   </h3>
   <p class="project-summary">{project.summary}</p>
-  <p class="chips">{project.topics.map((topic) => <span class="chip">{topic}</span>)}</p>
+  <p class="chips">
+    {project.topics.map((topic) => (
+      <span class="chip">{topic}</span>
+    ))}
+  </p>
 </article>
