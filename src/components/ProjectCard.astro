@@ -1,0 +1,18 @@
+---
+import type { Project } from '../projects';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="card">
+  <h3>
+    {project.repo ? <a href={project.repo}>{project.name}</a> : project.name}
+  </h3>
+  <p class="muted"><small>{project.language} · {project.status}</small></p>
+  <p>{project.summary}</p>
+  <p>{project.topics.map((topic) => <span class="tag">{topic}</span>)}</p>
+</article>

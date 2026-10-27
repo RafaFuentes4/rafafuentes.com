@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { PROJECTS } from '../projects';
+---
+
+<Base title="Projects" description="Open-source projects on agent efficiency, durable execution and storage engines.">
+  <h1>Projects</h1>
+  <p class="lede">
+    Three deep projects, one per language. Each ships with a design doc, reproducible benchmarks and a
+    write-up series.
+  </p>
+  <div class="cards">
+    {PROJECTS.map((project) => <ProjectCard project={project} />)}
+  </div>
+</Base>
