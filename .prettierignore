@@ -7,3 +7,8 @@ skills-lock.json
 # Vendored super-board pack and its run evidence
 .claude/
 docs/super-board/
+
+# Playwright output
+test-results/
+playwright-report/
+e2e-screenshots/
