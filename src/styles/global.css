@@ -9,7 +9,6 @@
   --border: #e7e7e4;
   --border-strong: #d6d6d2;
   --accent: #2453e6;
-  --accent-soft: rgb(36 83 230 / 0.08);
   --code-bg: #f4f4f2;
   --grid: rgb(17 17 19 / 0.045);
   --shadow:
@@ -21,8 +20,8 @@
   --mono: var(--font-geist-mono), ui-monospace, 'SF Mono', Menlo, monospace;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --radius: 14px;
-  --container: 68rem;
-  --narrow: 44rem;
+  /* One reading column for every page: ~680 px of text. */
+  --container: 42.5rem;
   color-scheme: light;
 }
 
@@ -36,7 +35,6 @@
     --border: #232328;
     --border-strong: #303037;
     --accent: #7d9bff;
-    --accent-soft: rgb(125 155 255 / 0.1);
     --code-bg: #17171b;
     --grid: rgb(255 255 255 / 0.04);
     --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.6);
@@ -53,7 +51,6 @@
   --border: #232328;
   --border-strong: #303037;
   --accent: #7d9bff;
-  --accent-soft: rgb(125 155 255 / 0.1);
   --code-bg: #17171b;
   --grid: rgb(255 255 255 / 0.04);
   --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.6);
@@ -78,7 +75,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
-  font: 16px/1.6 var(--sans);
+  font: 17px/1.65 var(--sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -120,10 +117,6 @@ p {
   padding: 0 1.25rem;
 }
 
-.container.narrow {
-  max-width: var(--narrow);
-}
-
 .muted {
   color: var(--muted);
 }
@@ -138,10 +131,6 @@ p {
   font: 500 0.75rem/1 var(--mono);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-.accent {
-  color: var(--accent);
 }
 
 /* ---------- Header / footer ---------- */
@@ -332,7 +321,6 @@ p {
 @media (hover: hover) and (pointer: fine) {
   .site-header nav a:hover {
     color: var(--fg);
-    background: var(--accent-soft);
   }
 
   .theme-toggle:hover {
@@ -387,7 +375,7 @@ p {
 
 .hero-title {
   max-width: 18ch;
-  font-size: clamp(2.3rem, 5.6vw, 4rem);
+  font-size: clamp(2rem, 5vw, 2.75rem);
   letter-spacing: -0.04em;
   line-height: 1.04;
 }
@@ -396,7 +384,7 @@ p {
   max-width: 38rem;
   margin: 1.5rem 0 0;
   color: var(--fg-2);
-  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  font-size: 1.125rem;
   line-height: 1.6;
 }
 
@@ -425,7 +413,7 @@ p {
 
 .metrics {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   margin: 0;
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -437,8 +425,12 @@ p {
   padding: 1.5rem 1.5rem 1.6rem;
 }
 
-.metric + .metric {
+.metric:nth-child(even) {
   border-left: 1px solid var(--border);
+}
+
+.metric:nth-child(n + 3) {
+  border-top: 1px solid var(--border);
 }
 
 .metric dt {
@@ -521,7 +513,6 @@ p {
 
 .case-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
 
@@ -533,7 +524,7 @@ p {
 
 .case-context {
   margin: 0 0 0.6rem;
-  color: var(--accent);
+  color: var(--muted);
   font: 500 0.75rem var(--mono);
 }
 
@@ -580,7 +571,6 @@ p {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
 
@@ -630,7 +620,7 @@ p {
 }
 
 .status[data-status='In progress'] {
-  color: var(--accent);
+  color: var(--fg);
 }
 
 .status[data-status='In progress']::before {
@@ -655,8 +645,7 @@ p {
 
 .split {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 4rem;
+  gap: 5rem;
 }
 
 .post-list {
@@ -744,9 +733,7 @@ p {
   align-items: center;
   justify-content: space-between;
   padding: 2.25rem;
-  background:
-    radial-gradient(120% 140% at 100% 0%, var(--accent-soft), transparent 60%),
-    var(--bg-elev);
+  background: var(--bg-elev);
 }
 
 .cta h2 {
@@ -961,29 +948,6 @@ p {
 
 /* ---------- Responsive ---------- */
 
-@media (max-width: 900px) {
-  .metrics {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .metric:nth-child(3) {
-    border-left: 0;
-  }
-
-  .metric:nth-child(n + 3) {
-    border-top: 1px solid var(--border);
-  }
-
-  .project-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .split {
-    grid-template-columns: 1fr;
-    gap: 5rem;
-  }
-}
-
 @media (max-width: 680px) {
   .hero {
     padding: 4.5rem 0 3rem;
@@ -991,10 +955,6 @@ p {
 
   .brand span:last-child {
     display: none;
-  }
-
-  .case-grid {
-    grid-template-columns: 1fr;
   }
 
   .case {
