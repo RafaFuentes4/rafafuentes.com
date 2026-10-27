@@ -81,7 +81,6 @@ function wrapText(text, maxWidthPx, fontSize, weight) {
   const words = String(text).split(/\s+/);
   const lines = [];
   let line = '';
-  let lineWidth = 0;
 
   const width = (s) =>
     [...s].reduce((acc, ch) => acc + charWidth(ch, weight) * fontSize, 0);
@@ -92,10 +91,8 @@ function wrapText(text, maxWidthPx, fontSize, weight) {
     if (line && candidateWidth > maxWidthPx) {
       lines.push(line);
       line = word;
-      lineWidth = width(word);
     } else {
       line = candidate;
-      lineWidth = candidateWidth;
     }
     if (lines.length >= 3) break;
   }
