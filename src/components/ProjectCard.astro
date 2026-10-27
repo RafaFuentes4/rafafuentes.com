@@ -1,8 +1,8 @@
 ---
-import type { Project } from '../projects';
+import type { ListedProject } from '../projects';
 
 interface Props {
-  project: Project;
+  project: ListedProject;
 }
 
 const { project } = Astro.props;
@@ -17,7 +17,7 @@ const lang = project.language.toLowerCase().replace('+', 'p');
     </span>
   </div>
   <h3>
-    {project.repo ? <a href={project.repo}>{project.name}</a> : project.name}
+    <a href={project.repo}>{project.name}</a>
   </h3>
   <p class="project-summary">{project.summary}</p>
   <p class="chips">

@@ -4,6 +4,7 @@ export interface Project {
   status: 'In progress' | 'Planned' | 'Shipped';
   summary: string;
   topics: string[];
+  /** Public repository URL. A project is listed on the site only once it has one. */
   repo?: string;
 }
 
@@ -38,3 +39,10 @@ export const PROJECTS: Project[] = [
     topics: ['storage formats', 'compression', 'SIMD', 'query pushdown'],
   },
 ];
+
+export type ListedProject = Project & { repo: string };
+
+/** Projects with a public repository; the rest stay in PROJECTS until theirs opens. */
+export const LISTED_PROJECTS = PROJECTS.filter(
+  (project): project is ListedProject => Boolean(project.repo),
+);

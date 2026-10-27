@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import { PROJECTS } from '../projects';
+import { LISTED_PROJECTS } from '../projects';
 ---
 
 <Base
@@ -12,15 +12,22 @@ import { PROJECTS } from '../projects';
     <p class="eyebrow">Open source</p>
     <h1>Projects</h1>
     <p class="hero-lede">
-      Three deep projects, one per language. Each ships with a design doc,
-      reproducible benchmarks and a series of write-ups.
+      Each project ships with a design doc, reproducible benchmarks and a series
+      of write-ups.
     </p>
   </section>
   <section class="container">
-    <div class="project-grid">
-      {PROJECTS.map((project) => (
-        <ProjectCard project={project} />
-      ))}
-    </div>
+    {LISTED_PROJECTS.length > 0 ? (
+      <div class="project-grid">
+        {LISTED_PROJECTS.map((project) => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    ) : (
+      <p class="muted">
+        No public repositories yet. Projects appear here once their code is
+        open.
+      </p>
+    )}
   </section>
 </Base>

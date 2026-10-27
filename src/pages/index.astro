@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import PostList from '../components/PostList.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import { PROJECTS } from '../projects';
+import { LISTED_PROJECTS } from '../projects';
 import { getPublishedPosts } from '../posts';
 import { CASE_STUDIES, EXPERIENCE, METRICS } from '../profile';
 import { SITE } from '../site';
@@ -75,22 +75,24 @@ const posts = (await getPublishedPosts()).slice(0, 4);
     </div>
   </section>
 
-  <section class="container section">
-    <header class="section-head section-head-row">
-      <div>
-        <p class="eyebrow">Open source</p>
-        <h2>Building in public</h2>
+  {LISTED_PROJECTS.length > 0 && (
+    <section class="container section">
+      <header class="section-head section-head-row">
+        <div>
+          <p class="eyebrow">Open source</p>
+          <h2>Building in public</h2>
+        </div>
+        <a class="link-arrow" href="/projects">
+          All projects
+        </a>
+      </header>
+      <div class="project-grid">
+        {LISTED_PROJECTS.map((project) => (
+          <ProjectCard project={project} />
+        ))}
       </div>
-      <a class="link-arrow" href="/projects">
-        All projects
-      </a>
-    </header>
-    <div class="project-grid">
-      {PROJECTS.map((project) => (
-        <ProjectCard project={project} />
-      ))}
-    </div>
-  </section>
+    </section>
+  )}
 
   <section class="container section split">
     <div>
