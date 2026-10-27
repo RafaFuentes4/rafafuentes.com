@@ -11,12 +11,15 @@ const fmt = new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'short', 
 
 {
   posts.length === 0 ? (
-    <p class="muted">First posts are on the way.</p>
+    <p class="muted">First deep dives are on the way.</p>
   ) : (
     <ul class="post-list">
       {posts.map((post) => (
         <li>
-          <a href={`/writing/${post.id}`}>{post.data.title}</a>
+          <a href={`/writing/${post.id}`}>
+            <span class="post-title">{post.data.title}</span>
+            <span class="post-desc">{post.data.description}</span>
+          </a>
           <time datetime={post.data.date.toISOString()}>{fmt.format(post.data.date)}</time>
         </li>
       ))}

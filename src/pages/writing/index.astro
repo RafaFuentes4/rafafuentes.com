@@ -7,6 +7,12 @@ const posts = await getPublishedPosts();
 ---
 
 <Base title="Writing" description="Notes and deep dives on agents, distributed systems and data infrastructure.">
-  <h1>Writing</h1>
-  <PostList posts={posts} />
+  <section class="container page-head">
+    <p class="eyebrow">Writing</p>
+    <h1>Notes & deep dives</h1>
+    <p class="hero-lede">On agents, distributed systems and data infrastructure.</p>
+  </section>
+  <section class="container narrow">
+    <PostList posts={posts} />
+  </section>
 </Base>

@@ -4,32 +4,125 @@ import PostList from '../components/PostList.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { PROJECTS } from '../projects';
 import { getPublishedPosts } from '../posts';
+import { CASE_STUDIES, EXPERIENCE, METRICS } from '../profile';
+import { SITE } from '../site';
 
-const posts = (await getPublishedPosts()).slice(0, 5);
+const posts = (await getPublishedPosts()).slice(0, 4);
 ---
 
 <Base>
-  <h1>Rafael Fuentes</h1>
-  <p class="lede">
-    Software engineer in Málaga. I build production backend systems, data pipelines, AI systems and the
-    Kubernetes infrastructure they run on.
-  </p>
-  <p>
-    I'm Tech Lead at Bettergy, where I work across four products and an AI platform: a multi-tenant IoT
-    platform on TimescaleDB, a retrieval system serving 18,000+ conversations over regulatory documents,
-    and the core energy-certification platform. Before that I did technical due diligence on 300+
-    startups and built research data pipelines at the University of Málaga.
-  </p>
-  <p>
-    Here I write about what I'm building outside work: making LLM agents cheaper without making them
-    worse, durable execution for distributed systems, and storage engines from the inside.
-  </p>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow reveal">Tech Lead at Bettergy · Málaga, Spain</p>
+      <h1 class="hero-title reveal">
+        I build production systems for <span class="accent">AI</span>, <span class="accent">data</span> and
+        the <span class="accent">infrastructure</span> underneath them.
+      </h1>
+      <p class="hero-lede reveal">
+        Backend and platform engineer working across retrieval and agent systems, multi-tenant
+        platforms, time-series pipelines and Kubernetes. I own systems end to end, from design doc to
+        on-call.
+      </p>
+      <div class="hero-actions reveal">
+        <a class="button button-primary" href={`mailto:${SITE.email}`}>Get in touch</a>
+        <a class="button" href={SITE.linkedin}>LinkedIn</a>
+        <a class="button" href={SITE.github}>GitHub</a>
+      </div>
+    </div>
+  </section>
 
-  <h2>Writing</h2>
-  <PostList posts={posts} />
+  <section class="container">
+    <dl class="metrics">
+      {
+        METRICS.map((metric) => (
+          <div class="metric reveal">
+            <dt>{metric.value}</dt>
+            <dd>{metric.label}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
 
-  <h2>Current projects</h2>
-  <div class="cards">
-    {PROJECTS.map((project) => <ProjectCard project={project} />)}
-  </div>
+  <section id="work" class="container section">
+    <header class="section-head">
+      <p class="eyebrow">Selected work</p>
+      <h2>Systems in production</h2>
+    </header>
+    <div class="case-grid">
+      {
+        CASE_STUDIES.map((study) => (
+          <article class="case card">
+            <p class="case-context">{study.context}</p>
+            <h3>{study.title}</h3>
+            <p class="case-summary">{study.summary}</p>
+            <ul class="case-points">
+              {study.points.map((point) => (
+                <li>{point}</li>
+              ))}
+            </ul>
+            <p class="chips">
+              {study.stack.map((item) => (
+                <span class="chip">{item}</span>
+              ))}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="container section">
+    <header class="section-head section-head-row">
+      <div>
+        <p class="eyebrow">Open source</p>
+        <h2>Building in public</h2>
+      </div>
+      <a class="link-arrow" href="/projects">All projects</a>
+    </header>
+    <div class="project-grid">
+      {PROJECTS.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+
+  <section class="container section split">
+    <div>
+      <header class="section-head section-head-row">
+        <div>
+          <p class="eyebrow">Writing</p>
+          <h2>Latest notes</h2>
+        </div>
+        <a class="link-arrow" href="/writing">All writing</a>
+      </header>
+      <PostList posts={posts} />
+    </div>
+    <div>
+      <header class="section-head">
+        <p class="eyebrow">Experience</p>
+        <h2>Where I've worked</h2>
+      </header>
+      <ol class="timeline">
+        {
+          EXPERIENCE.map((item) => (
+            <li>
+              <span class="timeline-role">{item.role}</span>
+              <span class="timeline-org">{item.org}</span>
+              <span class="timeline-period">{item.period}</span>
+            </li>
+          ))
+        }
+      </ol>
+      <p class="muted small">B.Sc. Telecommunications Engineering, Universidad de Málaga.</p>
+    </div>
+  </section>
+
+  <section class="container section">
+    <div class="cta card">
+      <div>
+        <h2>Let's talk</h2>
+        <p class="muted">Happy to chat about agents, distributed systems or data infrastructure.</p>
+      </div>
+      <a class="button button-primary" href={`mailto:${SITE.email}`}>{SITE.email}</a>
+    </div>
+  </section>
 </Base>
