@@ -1,0 +1,30 @@
+
+Running 24 tests using 4 workers
+
+  ✓   1 [mobile-dark] › e2e/smoke.spec.ts:58:3 › home renders (1.2s)
+  ✓   3 [mobile-light] › e2e/smoke.spec.ts:58:3 › home renders (1.2s)
+  ✓   2 [desktop-light] › e2e/smoke.spec.ts:58:3 › home renders (1.2s)
+  ✓   4 [desktop-dark] › e2e/smoke.spec.ts:58:3 › home renders (1.3s)
+  ✓   7 [desktop-light] › e2e/smoke.spec.ts:58:3 › projects renders (941ms)
+  ✓   5 [mobile-dark] › e2e/smoke.spec.ts:58:3 › projects renders (961ms)
+  ✓   6 [mobile-light] › e2e/smoke.spec.ts:58:3 › projects renders (991ms)
+  ✓   8 [desktop-dark] › e2e/smoke.spec.ts:58:3 › projects renders (874ms)
+  ✓   9 [mobile-dark] › e2e/smoke.spec.ts:58:3 › writing renders (943ms)
+  ✓  11 [mobile-light] › e2e/smoke.spec.ts:58:3 › writing renders (947ms)
+  ✓  10 [desktop-light] › e2e/smoke.spec.ts:58:3 › writing renders (984ms)
+  ✓  12 [desktop-dark] › e2e/smoke.spec.ts:58:3 › writing renders (958ms)
+  ✓  13 [mobile-dark] › e2e/smoke.spec.ts:58:3 › 404 renders (917ms)
+  ✓  15 [desktop-light] › e2e/smoke.spec.ts:58:3 › 404 renders (977ms)
+  ✓  14 [mobile-light] › e2e/smoke.spec.ts:58:3 › 404 renders (1.0s)
+  ✓  16 [desktop-dark] › e2e/smoke.spec.ts:58:3 › 404 renders (969ms)
+  -  17 [mobile-dark] › e2e/smoke.spec.ts:69:1 › a post renders
+  -  20 [desktop-dark] › e2e/smoke.spec.ts:69:1 › a post renders
+  -  18 [desktop-light] › e2e/smoke.spec.ts:69:1 › a post renders
+  -  19 [mobile-light] › e2e/smoke.spec.ts:69:1 › a post renders
+  ✓  21 [mobile-dark] › e2e/smoke.spec.ts:77:1 › theme toggle sets data-theme and survives a reload (639ms)
+  ✓  22 [desktop-light] › e2e/smoke.spec.ts:77:1 › theme toggle sets data-theme and survives a reload (654ms)
+  ✓  24 [mobile-light] › e2e/smoke.spec.ts:77:1 › theme toggle sets data-theme and survives a reload (657ms)
+  ✓  23 [desktop-dark] › e2e/smoke.spec.ts:77:1 › theme toggle sets data-theme and survives a reload (698ms)
+
+  4 skipped
+  20 passed (8.8s)
